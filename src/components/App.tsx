@@ -1,37 +1,23 @@
-import { Application, extend, useTick } from '@pixi/react';
-import { Container, Sprite } from 'pixi.js';
-import { addElapsedTime } from '../hooks/useRaderTick';
-import { raderInfo } from '../raderInfo';
-import AirplaneGraphic from './rader/AirplaneGraphic';
+import { Application, extend } from '@pixi/react';
+import { Container, Graphics, Sprite, Text } from 'pixi.js';
+import RaderMap from './rader/RaderMap';
+import { useRef } from 'react';
+import './App.css';
 
 extend({
   Container,
+  Graphics,
   Sprite,
+  Text,
 });
 
 export default function App() {
+  const ref = useRef<HTMLDivElement>(null);
   return (
-    <Application background='#ffffff' resizeTo={window}>
-      <RaderMap />
-    </Application>
-  );
-}
-
-function RaderMap() {
-  useTick((ticker) => {
-    addElapsedTime(ticker.deltaTime);
-  });
-
-  useTick((ticker) => {
-    raderInfo.airplanes = raderInfo.airplanes.map((airplane) => {
-      airplane.y -= ticker.deltaTime * 0.1;
-      return airplane;
-    });
-  });
-
-  return (
-    <>
-      {raderInfo.airplanes.map((airplane) => <AirplaneGraphic id={airplane.id} key={airplane.id} />)}
-    </>
+    <div className='rader' ref={ref}>
+      <Application background='#f6f6fa' resizeTo={ref}>
+        <RaderMap />
+      </Application>
+    </div>
   );
 }

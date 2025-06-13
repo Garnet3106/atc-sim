@@ -2,15 +2,14 @@ import { Assets, Sprite, Texture } from 'pixi.js';
 import { useEffect, useRef, useState } from 'react';
 import { useRaderTick } from '../../hooks/useRaderTick';
 import { AirplaneId } from '../../models/airplane';
-import { raderInfo } from '../../raderInfo';
+import { raderInfo } from '../../models/rader';
 
-type AirplaneGraphicProps = {
+export type AirplaneGraphicProps = {
   id: AirplaneId,
 };
 
 export default function AirplaneGraphic(props: AirplaneGraphicProps) {
   const airplane = raderInfo.airplanes.find((airplane) => airplane.id === props.id);
-
   const ref = useRef<Sprite>(null);
   const [texture, setTexture] = useState(Texture.EMPTY);
 
@@ -28,15 +27,15 @@ export default function AirplaneGraphic(props: AirplaneGraphicProps) {
     }
     ref.current.x = airplane.x;
     ref.current.y = airplane.y;
-    ref.current.rotation = airplane.heading;
+    ref.current.angle = airplane.heading;
   });
 
   return (
     <pixiSprite
-      ref={ref}
       texture={texture}
       anchor={0.5}
-      scale={0.15}
+      scale={0.13}
+      ref={ref}
     />
   );
 }

@@ -1,7 +1,7 @@
 import { useTick } from '@pixi/react';
 import { useRef } from 'react';
 
-const drawingInterval = 1;
+const drawingInterval = 80;
 let elapsedTime = 0;
 let latestDrawingTime: number[] = [];
 
