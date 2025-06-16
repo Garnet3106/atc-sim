@@ -20,9 +20,13 @@ export default function AirplaneInfoGraphic(props: AirplaneInfoGraphicProps) {
     ref.current.y = airplane.y - 12;
   });
 
+  if (!airplane) {
+    return;
+  }
+
   return (
     <pixiText
-      text={'SKY158 B738\nFL150 | 250'}
+      text={`${airplane.callsign}${airplane.flightNumber} B738\nFL150 | 250`}
       anchor={{ x: 0.5, y: 1 }}
       alpha={0.6}
       style={{ fontSize: 11 }}

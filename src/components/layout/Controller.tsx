@@ -16,7 +16,7 @@ export default function Controller() {
       }}
       key={airplane.id}
     >
-      SKY157 B738
+      {`${airplane.callsign}${airplane.flightNumber} B738`}
       <br />
       {airplane.targetHeading ? stringifyTargetHeading(airplane.targetHeading) : airplane.heading} FL150 250KNTS
     </div>
@@ -28,6 +28,7 @@ export default function Controller() {
       </div>
       <div className='controller-panel'>
         {/* [todo] css書く */}
+        {getOperationTargetFlightName()}
         <div className='control-panel-item'>
           <div className='control-panel-item-name'>
             HDG
@@ -46,6 +47,11 @@ export default function Controller() {
       </div>
     </div>
   );
+
+  function getOperationTargetFlightName(): string | null {
+    const airplane = raderInfo.airplanes.find((airplane) => airplane.id === operationTarget);
+    return airplane ? `${airplane.callsign}${airplane.flightNumber}` : null;
+  }
 
   function confirm() {
     if (!operationTarget) {
