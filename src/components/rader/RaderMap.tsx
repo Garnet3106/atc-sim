@@ -14,7 +14,7 @@ export default function RaderMap() {
   useTick((ticker) => {
     raderInfo.airplanes = raderInfo.airplanes.map((airplane) => {
       const moveDistance = ticker.deltaTime * 0.015;
-      const rotationDiff = ticker.deltaTime * 0.05;
+      const rotationDiff = ticker.deltaTime * 0.08;
 
       if (airplane.targetHeading && !airplane.targetHeading.reached) {
         const actualRotationDiff = airplane.targetHeading.direction === 'right' ? rotationDiff : -rotationDiff;
@@ -25,7 +25,7 @@ export default function RaderMap() {
         if (airplane.targetHeading.to.type === 'coordinates') {
           const xDiff = airplane.targetHeading.to.x - airplane.x;
           const yDiff = airplane.targetHeading.to.y - airplane.y;
-          targetHeading = canonicalizeHeading(Math.atan(xDiff / -yDiff) * (180 / Math.PI));
+          targetHeading = canonicalizeHeading(90 + Math.atan2(yDiff, xDiff) * (180 / Math.PI));
         }
         const nextHeading = canonicalizeHeading(airplane.heading + actualRotationDiff);
 

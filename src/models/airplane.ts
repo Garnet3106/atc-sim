@@ -6,6 +6,7 @@ export type Airplane = {
   y: number,
   heading: number,
   targetHeading: TargetHeading | null,
+  landingClearance: LandingClearance | null,
 };
 
 export type TargetHeading = {
@@ -26,3 +27,7 @@ export type TargetHeadingTo = {
 export function canonicalizeHeading(heading: number): number {
   return heading > 0 ? heading % 360 : (heading + 360) % 360;
 }
+
+export type LandingClearance = {
+  runwayName: string,
+};
