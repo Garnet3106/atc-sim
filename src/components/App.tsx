@@ -16,7 +16,7 @@ extend({
 function stringifyTargetHeading(targetHeading: TargetHeading): string {
   switch (targetHeading.to.type) {
     case 'coordinates':
-      return '<WYP>';
+      return targetHeading.to.waypointName;
 
     case 'heading':
       return targetHeading.to.heading.toString();
@@ -128,7 +128,7 @@ export default function App() {
           {flights}
         </div>
         <div className="controller-panel">
-          
+
         </div>
       </div>
     </div>

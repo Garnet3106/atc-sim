@@ -20,6 +20,7 @@ export type TargetHeadingTo = {
   heading: number,
 } | {
   type: 'coordinates',
+  waypointName: string,
   x: number,
   y: number,
 };
