@@ -27,10 +27,16 @@
   color: #4569ab;
   font-size: 85%;
   padding: 2px;
+  transition: background-color 100ms ease;
+}
+
+.controller-flights-item-selected {
+  background-color: #d4d2df;
 }
 
 .controller-panel {
   background-color: #ab4545;
+  font-family: 'Courier New', Courier, monospace;
   height: 300px;
 }
 
