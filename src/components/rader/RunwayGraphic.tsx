@@ -20,7 +20,7 @@ export default function RunwayGraphic(props: RunwayGraphicProps) {
           return;
         }
         graphics.clear();
-        graphics.strokeStyle = { color: 'black', width: 2 };
+        graphics.strokeStyle = { color: '#06245d', width: 3 };
         graphics.beginPath();
         graphics.moveTo(0, 0);
         graphics.lineTo(runway.endX - runway.beginX, runway.endY - runway.beginY);

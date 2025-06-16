@@ -1,4 +1,78 @@
+.wrapper {
+  display: flex;
+}
+
 .rader {
   height: 700px;
   width: 800px;
+}
+
+.controller {
+  width: 200px;
+}
+
+.controller-flights {
+  background-color: #4569ab;
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  flex-direction: column;
+  gap: 5px;
+  height: 480px;
+  overflow-y: scroll;
+  padding: 5px;
+}
+
+.controller-flights-item {
+  background-color: white;
+  color: #4569ab;
+  font-size: 85%;
+  padding: 2px;
+}
+
+.controller-panel {
+  background-color: #ab4545;
+  height: 300px;
+}
+
+.messages {
+  background-color: #cccccc;
+  font-family: 'Times New Roman', Times, serif;
+  height: 90px;
+  overflow-y: scroll;
+}
+
+.message-item {
+  align-items: center;
+  display: flex;
+  height: 20px;
+}
+
+.message-item-target {
+  align-items: center;
+  display: flex;
+  min-width: 140px;
+  height: 20px;
+}
+
+.message-item-control .message-item-target {
+  background-color: #4569ab;
+}
+
+.message-item-pilot .message-item-target {
+  background-color: #ab4545;
+}
+
+.message-item-text {
+  align-items: center;
+  display: flex;
+  height: 20px;
+  width: 100%;
+}
+
+.message-item-control .message-item-text {
+  background-color: #7488af;
+}
+
+.message-item-pilot .message-item-text {
+  background-color: #af7474;
 }
